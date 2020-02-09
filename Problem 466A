@@ -1,0 +1,29 @@
+import java.util.*;
+
+
+public class PROB466A{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        // Check if it is better to get single ride (SR) tickets  or multiple ride (MR) tickets 
+        if(m * a > b){
+        // if getting SRTs is more expensive than a single MRT take MRT
+          //Find out how many rides you still need to take
+            int mod = (n%m) * a;
+            if(mod > b){
+			//if the rmainder is still greater than the cost of a MRT
+                System.out.println(n/m*b + b);
+            }
+            else{
+                System.out.println(n/m*b+mod);
+            }
+        }
+        else{
+		//Getting SRTs is cheaper
+            System.out.println(n*a);
+        }
+    }
+}
